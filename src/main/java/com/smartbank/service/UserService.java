@@ -1,8 +1,7 @@
 package com.smartbank.service;
 
-import com.smartbank.model.User;
+import com.smartbank.model.Users;
 import com.smartbank.repository.UserRepository;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,10 +14,10 @@ public class UserService
 
     public String login(String username, String password)
     {
-        User user=userRepository.findByUsername(username);
-        if(user != null && user.getPassword().equals(password))
+        Users users =userRepository.findByUsername(username);
+        if(users != null && users.getPassword().equals(password))
         {
-            return "Login successful! Welcome "+user.getUsername();
+            return "Login successful! Welcome "+ users.getUsername();
         }
         else
         {
@@ -28,15 +27,15 @@ public class UserService
 
     public String Signin(String username, String password , String email)
     {
-        User user1=userRepository.findByUsername(username);
-        if(user1==null)
+        Users users1 =userRepository.findByUsername(username);
+        if(users1 ==null)
         {
 
-        User user= new User();
-        user.setUsername(username);
-        user.setEmail(email);
-        user.setPassword(password);
-        userRepository.save(user);
+        Users users = new Users();
+        users.setUsername(username);
+        users.setEmail(email);
+        users.setPassword(password);
+        userRepository.save(users);
         return "Account Created";
         }
         else {

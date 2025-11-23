@@ -56,7 +56,7 @@ public class Account
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private Users users;
 
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     @JsonManagedReference
@@ -94,12 +94,12 @@ public class Account
         this.balance = balance;
     }
 
-    public User getUser() {
-        return user;
+    public Users getUser() {
+        return users;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(Users users) {
+        this.users = users;
     }
 
     public List<Transaction> getTransactions() {

@@ -1,7 +1,7 @@
 package com.smartbank.service;
 
 import com.smartbank.model.Account;
-import com.smartbank.model.User;
+import com.smartbank.model.Users;
 import com.smartbank.repository.AccountRepository;
 import com.smartbank.repository.UserRepository;
 import jakarta.transaction.Transactional;
@@ -25,7 +25,7 @@ public class AccountService
     //Add new Account
     public String add(Long userId, String account_num, String account_type, String branch,String ifsc,String aadhar)
     {
-        Optional<User> optionalUser= userRepository.findById(userId);
+        Optional<Users> optionalUser= userRepository.findById(userId);
         if(optionalUser.isPresent())
         {
             Account acc= new Account();

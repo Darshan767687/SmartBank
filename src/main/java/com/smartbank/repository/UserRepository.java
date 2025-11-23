@@ -1,9 +1,9 @@
 package com.smartbank.repository;
 
-import com.smartbank.model.User;
+import com.smartbank.model.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends JpaRepository<User, Long>
+public interface UserRepository extends JpaRepository<Users, Long>
 {
-    User findByUsername(String username);
+    Users findByUsername(String username);
 }
