@@ -17,10 +17,10 @@ public class HomeController
     {
         return "about";
     }
-    @GetMapping("/Login")
+    @GetMapping("/login")
     public String login()
     {
-        return "Login";
+        return "login";
     }
 
     @GetMapping("/signup")
