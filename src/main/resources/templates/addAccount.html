@@ -53,6 +53,27 @@
         .money:nth-child(4) { left: 75%; animation-delay: 1.5s; }
         .money:nth-child(5) { left: 90%; animation-delay: 3.5s; }
 
+        /* FIX: User ID box OUTSIDE and positioned safely */
+        .user-id-box {
+          position: fixed;
+          top: 30px;
+          right: 30px;
+          background: rgba(0, 212, 255, 0.2);
+          padding: 15px 25px;
+          border-radius: 20px;
+          color: #00d4ff;
+          font-weight: 600;
+          backdrop-filter: blur(10px);
+          box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+          text-align: center;
+          z-index: 999;
+        }
+
+        .user-id-box h3 {
+          margin-bottom: 5px;
+          color: #00d4ff;
+        }
+
         .account-card {
           background: rgba(255, 255, 255, 0.1);
           backdrop-filter: blur(18px);
@@ -145,43 +166,16 @@
           from { opacity: 0; transform: translateY(-20px); }
           to { opacity: 1; transform: translateY(0); }
         }
-        .user-info-box {
-    position: absolute;
-    right: 30px;
-    top: 30px;
-    background: rgba(255, 255, 255, 0.15);
-    padding: 20px 25px;
-    border-radius: 20px;
-    backdrop-filter: blur(12px);
-    color: #fff;
-    box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
-    text-align: center;
-}
-
-.user-info-box h3 {
-    color: #00d4ff;
-    margin-bottom: 8px;
-}
-        .user-id-box {
-    position: absolute;
-    top: 120px;            /* Pushes below the heading */
-    right: 60px;           /* Moves to the right side */
-    background: rgba(0, 212, 255, 0.2);
-    padding: 15px 25px;
-    border-radius: 20px;
-    color: #00d4ff;
-    font-weight: 600;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
-    text-align: center;
-    animation: fadeIn 1s ease forwards;
-}
-
-
     </style>
 </head>
 
 <body>
+
+<!-- FIXED: User ID box moved OUTSIDE the card -->
+<div class="user-id-box">
+    <h3>Your User ID</h3>
+    <span th:text="${userId}"></span>
+</div>
 
 <div class="money-bg">
     <div class="money">💸</div>
@@ -192,13 +186,6 @@
 </div>
 
 <div class="account-card">
-    <div class="user-id-box">
-        <h3>Your User ID</h3>
-        <span th:text="${userId}"></span>
-    </div>
-
-
-
 
     <h2>Add New Account</h2>
 
@@ -209,7 +196,6 @@
             <label>Account Number</label>
         </div>
 
-        <!-- ✅ New Account PIN field added -->
         <div class="input-box">
             <input type="password" name="acc_pin" maxlength="6" required>
             <label>Account PIN</label>
