@@ -12,6 +12,13 @@ public class UserService
     @Autowired
     UserRepository userRepository;
 
+
+
+    public Users getUserByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
+
+
     public String login(String username, String password)
     {
         Users users =userRepository.findByUsername(username);

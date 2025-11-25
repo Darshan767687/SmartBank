@@ -35,7 +35,7 @@ public class HomeController
     @GetMapping("/addAccount")
     public String addAccount(HttpSession session, Model model)
     {
-        Users user = (Users) session.getAttribute("user"); // stored during login
+        Users user = (Users) session.getAttribute("loggedUser"); // stored during login
 
         if (user != null) {
             model.addAttribute("userId", user.getId());

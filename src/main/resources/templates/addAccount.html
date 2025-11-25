@@ -162,6 +162,21 @@
     color: #00d4ff;
     margin-bottom: 8px;
 }
+        .user-id-box {
+    position: absolute;
+    top: 120px;            /* Pushes below the heading */
+    right: 60px;           /* Moves to the right side */
+    background: rgba(0, 212, 255, 0.2);
+    padding: 15px 25px;
+    border-radius: 20px;
+    color: #00d4ff;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+    text-align: center;
+    animation: fadeIn 1s ease forwards;
+}
+
 
     </style>
 </head>
@@ -177,10 +192,12 @@
 </div>
 
 <div class="account-card">
-    <div class="user-info-box">
+    <div class="userid-box">
         <h3>Your User ID</h3>
-        <p th:text="${userId}"></p>
+        <span th:text="${userId}"></span>
     </div>
+
+
 
     <h2>Add New Account</h2>
 
