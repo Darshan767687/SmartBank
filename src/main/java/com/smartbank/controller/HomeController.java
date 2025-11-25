@@ -1,6 +1,9 @@
 package com.smartbank.controller;
 
+import com.smartbank.model.Users;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
@@ -30,8 +33,13 @@ public class HomeController
     }
 
     @GetMapping("/addAccount")
-    public String addAccount()
+    public String addAccount(HttpSession session, Model model)
     {
+        Users user = (Users) session.getAttribute("user"); // stored during login
+
+        if (user != null) {
+            model.addAttribute("userId", user.getId());
+        }
         return "addAccount";
     }
 
