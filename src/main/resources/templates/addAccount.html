@@ -22,9 +22,9 @@
           align-items: center;
           overflow: hidden;
           color: #fff;
+          padding: 15px;
         }
 
-        /* Floating Money Emojis 💸 */
         .money-bg {
           position: absolute;
           top: 0;
@@ -53,22 +53,16 @@
         .money:nth-child(4) { left: 75%; animation-delay: 1.5s; }
         .money:nth-child(5) { left: 90%; animation-delay: 3.5s; }
 
-        /* Glass Card */
         .account-card {
           background: rgba(255, 255, 255, 0.1);
           backdrop-filter: blur(18px);
           border-radius: 25px;
-          padding: 45px;
+          padding: 35px 30px;
           text-align: center;
-          width: 400px;
+          width: 100%;
+          max-width: 400px;
           box-shadow: 0 0 25px rgba(0, 212, 255, 0.3);
-          transition: 0.3s ease;
           animation: fadeIn 1s ease forwards;
-        }
-
-        .account-card:hover {
-          box-shadow: 0 0 40px rgba(0, 212, 255, 0.6);
-          transform: scale(1.02);
         }
 
         .account-card h2 {
@@ -78,10 +72,9 @@
           text-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
         }
 
-        /* Input Fields */
         .input-box {
           position: relative;
-          margin: 25px 0;
+          margin: 22px 0;
         }
 
         .input-box input,
@@ -94,7 +87,6 @@
           color: #fff;
           outline: none;
           font-size: 1rem;
-          transition: 0.3s;
         }
 
         .input-box input:focus,
@@ -120,7 +112,6 @@
           color: #00d4ff;
         }
 
-        /* Button */
         .btn {
           width: 100%;
           padding: 12px;
@@ -131,7 +122,6 @@
           font-weight: 600;
           font-size: 1rem;
           cursor: pointer;
-          transition: 0.3s;
           margin-top: 10px;
         }
 
@@ -149,10 +139,6 @@
         .back-link a {
           color: #00d4ff;
           text-decoration: none;
-        }
-
-        .back-link a:hover {
-          text-decoration: underline;
         }
 
         @keyframes fadeIn {
@@ -174,10 +160,18 @@
 
 <div class="account-card">
     <h2>Add New Account</h2>
+
     <form action="/log/add" method="post">
+
         <div class="input-box">
             <input type="text" name="account_num" required>
             <label>Account Number</label>
+        </div>
+
+        <!-- ✅ New Account PIN field added -->
+        <div class="input-box">
+            <input type="password" name="acc_pin" maxlength="6" required>
+            <label>Account PIN</label>
         </div>
 
         <div class="input-box">
@@ -203,16 +197,18 @@
         <div class="input-box">
             <input type="text" name="aadhar" maxlength="12" required>
             <label>Aadhar Number</label>
-        </div> <div class="input-box">
-            <input type="text" name="userId" maxlength="12" required>
+        </div>
+
+        <div class="input-box">
+            <input type="text" name="userId" required>
             <label>User Id</label>
         </div>
 
-
-
         <button type="submit" class="btn">Create Account</button>
         <p class="back-link">Go back to <a href="/dashboard">Dashboard</a></p>
+
     </form>
 </div>
+
 </body>
 </html>

@@ -57,13 +57,14 @@ public class LoginController
 
     @PostMapping("/add")
     public String addAcc(@RequestParam String account_num,
+                         @RequestParam String acc_pin,
                          @RequestParam String account_type,
                          @RequestParam String branch,
                          @RequestParam String irfc,
                          @RequestParam String aadhar,
                          @RequestParam Long userId,Model model)
     {
-        String result= accountService.add(userId,account_num,account_type,branch,irfc,aadhar);
+        String result= accountService.add(userId,account_num,acc_pin,account_type,branch,irfc,aadhar);
         if(result.toLowerCase().contains("account created successfully!"))
         {
             model.addAttribute("message",result);

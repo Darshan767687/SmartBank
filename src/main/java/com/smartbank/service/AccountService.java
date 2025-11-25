@@ -23,13 +23,14 @@ public class AccountService
     TransactionService transactionService;
 
     //Add new Account
-    public String add(Long userId, String account_num, String account_type, String branch,String ifsc,String aadhar)
+    public String add(Long userId, String account_num,String acc_pin, String account_type, String branch,String ifsc,String aadhar)
     {
         Optional<Users> optionalUser= userRepository.findById(userId);
         if(optionalUser.isPresent())
         {
             Account acc= new Account();
             acc.setAccountNumber(account_num);
+            acc.setAcc_pin(acc_pin);
             acc.setAccountType(account_type);
             acc.setUser(optionalUser.get());
             acc.setBranch(branch);
